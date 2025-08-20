@@ -33,10 +33,9 @@ const categorySchema = new mongoose.Schema({
 },{ _id: false })
 
 const cardSchema = new mongoose.Schema({
-  cardname: { type: String, required: true },
   count: { type: Number, required: true },
   set: { type: String, required: true },
-  setid: { type: Number, required: true }
+  collector_number: { type: Number, required: true }
 },{ _id: false })
 
 

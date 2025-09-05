@@ -9,16 +9,15 @@ const schema = mongoose.Schema({
     type:String,
     required: true,
   },
+  color:{
+    type:String,
+  },
   deck: {
     type: [categorySchema],
     required: true
   }, 
   legality: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type:Date,
+    type: Boolean,
     required: true,
   },
   updatedAt: {
@@ -35,7 +34,8 @@ const categorySchema = new mongoose.Schema({
 const cardSchema = new mongoose.Schema({
   count: { type: Number, required: true },
   set: { type: String, required: true },
-  collector_number: { type: Number, required: true }
+  collector_number: { type: Number, required: true },
+  iscommander: {type: Boolean}
 },{ _id: false })
 
 

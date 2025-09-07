@@ -1,5 +1,17 @@
 const mongoose = require("mongoose");
 
+const cardSchema = new mongoose.Schema({
+  count: { type: Number, required: true },
+  set: { type: String, required: true },
+  collector_number: { type: Number, required: true },
+  iscommander: {type: Boolean}
+},{ _id: false })
+
+const categorySchema = new mongoose.Schema({
+  categoryName: {type:String},
+  cards: [cardSchema]
+},{ _id: false })
+
 const schema = mongoose.Schema({
   name: {
     type:String,
@@ -26,18 +38,5 @@ const schema = mongoose.Schema({
   }
 })
 
-const categorySchema = new mongoose.Schema({
-  categoryName: {type:String, default: 'Main',},
-  cards: [cardSchema]
-},{ _id: false })
-
-const cardSchema = new mongoose.Schema({
-  count: { type: Number, required: true },
-  set: { type: String, required: true },
-  collector_number: { type: Number, required: true },
-  iscommander: {type: Boolean}
-},{ _id: false })
-
-
 //mongoose.model("name of collection the model is for", the schema to use for the model);
-module.exports = mongoose.model("Decks", schema);
+module.exports = mongoose.model("decks", schema);

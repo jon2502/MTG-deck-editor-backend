@@ -64,6 +64,7 @@ router.post('/SaveDeck', function(req, res, next) {
 
 router.post('/DeleteDeck', async function(req, res, next) {
   await Files.deleteOne({_id:req.body.id})
+  res.end()
 });
 
 

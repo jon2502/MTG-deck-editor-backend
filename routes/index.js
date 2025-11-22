@@ -7,7 +7,8 @@ router.get('/GetDecks', async function(req, res, next) {
   try{
     // filter = {} must be provided beacus we have projections in the form of name, format and color
     let decks = await DeckModel.find({},'name format color');
-    res.json({decks})
+    res.json(decks)
+    res.end()
   } catch(error) {
      res.status(400).json(error.message);
   }

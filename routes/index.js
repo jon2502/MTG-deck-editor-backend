@@ -18,7 +18,7 @@ router.get('/Getdeck/:id', async function(req, res, next) {
   try {
     let id = req.params.id
     let deck = await DeckModel.find({_id: id} );
-    res.json({deck})
+    res.json(deck)
   } catch(error){
     res.status(400).json(error.message);
   }

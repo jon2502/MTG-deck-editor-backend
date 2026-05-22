@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const DeckModel = require("../models/decks.js")
+const DeckModel = require("../models/decks.js");
+const { format } = require('morgan');
 
 
 router.get('/GetDecks', async function(req, res, next) {
@@ -64,7 +65,14 @@ router.post('/SaveDeck', async function(req, res, next) {
   console.log(req.body._id)
   let id = req.body._id
   await DeckModel.findOneAndUpdate({_id:id},
-    {deck:req.body.deck}
+    {
+      name: req.body.name,
+      format: req.body.format,
+      color: req.body.color,
+      deck: req.body.deck,
+      legality: req.body.legality,
+      updatedAt: Date.now(),
+    }
   )
   res.end()
 });

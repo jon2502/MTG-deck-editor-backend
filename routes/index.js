@@ -43,7 +43,7 @@ router.post('/CreateDeck', async function(req, res, next) {
       const newDeck = new DeckModel({
         name: req.body.name,
         format: req.body.format,
-        color: null,
+        color: [],
         deck: [{
           categoryName: 'main',
           cards: [],
@@ -59,8 +59,14 @@ router.post('/CreateDeck', async function(req, res, next) {
   }
 });
 
-router.post('/SaveDeck', function(req, res, next) {
-
+router.post('/SaveDeck', async function(req, res, next) {
+  console.log("ran save")
+  console.log(req.body._id)
+  let id = req.body._id
+  await DeckModel.findOneAndUpdate({_id:id},
+    {deck:req.body.deck}
+  )
+  res.end()
 });
 
 router.post('/DeleteDeck/:id', async function(req, res, next) {

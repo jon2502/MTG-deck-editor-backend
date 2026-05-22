@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cardSchema = new mongoose.Schema({
   count: { type: Number, required: true },
   set: { type: String, required: true },
-  collector_number: { type: Number, required: true },
+  collector_number: { type: String, required: true },
   iscommander: {type: Boolean}
 },{ _id: false })
 
@@ -22,7 +22,8 @@ const schema = mongoose.Schema({
     required: true,
   },
   color:{
-    type:String,
+    type:[],
+    required: true,
   },
   deck: {
     type: [categorySchema],

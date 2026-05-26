@@ -22,3 +22,5 @@ MONGODB_URI
 MONGODB_NAME
 ```
 
+## Creating a server
+Start a server using command:<code>npm start</code>

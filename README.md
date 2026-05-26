@@ -1,5 +1,5 @@
 # MTG deck editor backend
-this is the backend for my MTG deckeditor
+this is the backend for my MTG deck editor
 
 ## Made with
 - Express.js
@@ -16,7 +16,7 @@ https://github.com/jon2502/mtg-deck-editor
 
 Localhost is set to 3500
 
-# .env
+## .env
 ```env
 MONGODB_URI
 MONGODB_NAME

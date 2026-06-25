@@ -9,7 +9,7 @@ const cardSchema = new mongoose.Schema({
 
 const categorySchema = new mongoose.Schema({
   categoryName: {type:String},
-  cards: [cardSchema]
+  cards: [cardSchema],
 },{ _id: false })
 
 const colorSchema = new mongoose.Schema({
@@ -37,6 +37,25 @@ const schema = mongoose.Schema({
   },
   deck: {
     type: [categorySchema],
+    default: [
+          {
+            categoryName: 'Main Deck',
+            cards: [],
+            categories: []
+          },
+          {
+            categoryName: 'Sideboard',
+            cards: [],
+          },
+          {
+            categoryName: 'Maybeboard',
+            cards: [],
+          },
+          {
+            categoryName: 'Tokens',
+            cards: [],
+          },
+    ],
     required: true
   }, 
   legality: {

@@ -29,25 +29,7 @@ router.post('/Create', async function(req, res, next) {
   try {
       const newDeck = new DeckModel({
         name: req.body.name,
-        format: req.body.format,
-        deck: [
-          {
-            categoryName: 'Main Deck',
-            cards: [],
-          },
-          {
-            categoryName: 'Sideboard',
-            cards: [],
-          },
-          {
-            categoryName: 'Maybeboard',
-            cards: [],
-          },
-          {
-            categoryName: 'Tokens',
-            cards: [],
-          },
-        ],
+        format: req.body.format
       })
       const savedDeck = await newDeck.save();
       console.log(savedDeck)

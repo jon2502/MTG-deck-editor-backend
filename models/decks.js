@@ -12,6 +12,15 @@ const categorySchema = new mongoose.Schema({
   cards: [cardSchema]
 },{ _id: false })
 
+const colorSchema = new mongoose.Schema({
+  W: {type: Number, default: 0, min: 0},
+  U: {type: Number, default: 0, min: 0},
+  B: {type: Number, default: 0, min: 0},
+  G: {type: Number, default: 0, min: 0},
+  R: {type: Number, default: 0, min: 0},
+  C: {type: Number, default: 0, min: 0},
+},{ _id: false })
+
 const schema = mongoose.Schema({
   name: {
     type:String,
@@ -21,8 +30,9 @@ const schema = mongoose.Schema({
     type:String,
     required: true,
   },
-  color:{
-    type:[],
+  colors:{
+    type: colorSchema,
+    default: {},
     required: true,
   },
   deck: {
@@ -31,10 +41,12 @@ const schema = mongoose.Schema({
   }, 
   legality: {
     type: Boolean,
+    default: false,
     required: true,
   },
   updatedAt: {
     type:Date,
+    default: Date.now(),
     required: true,
   }
 })

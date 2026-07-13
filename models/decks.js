@@ -8,8 +8,21 @@ const cardSchema = new mongoose.Schema({
 },{ _id: false })
 
 const categorySchema = new mongoose.Schema({
-  categoryName: {type:String},
+  categoryName: {
+    type:String,
+    required: true
+  },
   cards: [cardSchema],
+   permissions: {
+    canRename: {
+      type: Boolean,
+      required: true
+    },
+    canDelete: {
+      type: Boolean,
+      required: true
+    }
+  }
 },{ _id: false })
 
 const colorSchema = new mongoose.Schema({
@@ -41,23 +54,40 @@ const schema = mongoose.Schema({
           {
             categoryName: 'Main Deck',
             cards: [],
-            categories: []
+            permissions: {
+              canRename: false,
+              canDelete: false
+            }
           },
           {
             categoryName: 'Sideboard',
             cards: [],
+            permissions: {
+              canRename: false,
+              canDelete: false
+            }
           },
           {
             categoryName: 'Maybeboard',
             cards: [],
-          },
-          {
-            categoryName: 'Tokens',
-            cards: [],
-          },
+            permissions: {
+              canRename: false,
+              canDelete: false
+            }
+          }
     ],
     required: true
-  }, 
+  },
+  Token: {
+    type : [
+      {
+        set: { type: String, required: true },
+        collector_number: { type: String, required: true },
+        related_cards: {type: Number, required: true, min: 0}
+      }
+    ],
+    required: true
+  },
   legality: {
     type: Boolean,
     default: false,

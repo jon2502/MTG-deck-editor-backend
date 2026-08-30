@@ -13,15 +13,16 @@ const categorySchema = new mongoose.Schema({
     required: true
   },
   cards: [cardSchema],
-   permissions: {
-    canRename: {
-      type: Boolean,
-      required: true
-    },
-    canDelete: {
-      type: Boolean,
-      required: true
-    }
+  parentId: {
+    type: String
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  order: {
+    type:Number,
+    required: true
   }
 },{ _id: false })
 
@@ -54,26 +55,20 @@ const schema = mongoose.Schema({
           {
             categoryName: 'Main Deck',
             cards: [],
-            permissions: {
-              canRename: false,
-              canDelete: false
-            }
+            type: main,
+            order: 0
           },
           {
             categoryName: 'Sideboard',
             cards: [],
-            permissions: {
-              canRename: false,
-              canDelete: false
-            }
+            type: main,
+            order: 0
           },
           {
             categoryName: 'Maybeboard',
             cards: [],
-            permissions: {
-              canRename: false,
-              canDelete: false
-            }
+            type: main,
+            order: 0
           }
     ],
     required: true

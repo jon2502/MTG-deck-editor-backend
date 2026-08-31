@@ -55,19 +55,19 @@ const schema = mongoose.Schema({
           {
             categoryName: 'Main Deck',
             cards: [],
-            type: main,
+            type: "main",
             order: 0
           },
           {
             categoryName: 'Sideboard',
             cards: [],
-            type: main,
+            type: "main",
             order: 1
           },
           {
             categoryName: 'Maybeboard',
             cards: [],
-            type: main,
+            type: "main",
             order: 3
           }
     ],

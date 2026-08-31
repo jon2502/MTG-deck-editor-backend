@@ -68,7 +68,7 @@ const schema = mongoose.Schema({
             categoryName: 'Maybeboard',
             cards: [],
             type: "main",
-            order: 3
+            order: 2
           }
     ],
     required: true

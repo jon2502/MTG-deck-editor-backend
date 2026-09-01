@@ -19,10 +19,6 @@ const categorySchema = new mongoose.Schema({
   type: {
     type: String,
     required: true
-  },
-  order: {
-    type:Number,
-    required: true
   }
 },{ _id: false })
 
@@ -56,19 +52,16 @@ const schema = mongoose.Schema({
             categoryName: 'Main Deck',
             cards: [],
             type: "main",
-            order: 0
           },
           {
             categoryName: 'Sideboard',
             cards: [],
             type: "main",
-            order: 1
           },
           {
             categoryName: 'Maybeboard',
             cards: [],
             type: "main",
-            order: 2
           }
     ],
     required: true

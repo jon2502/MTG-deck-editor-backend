@@ -7,15 +7,15 @@ This is the backend for my MTG deck editor
 - MongoDB (NoSQL)
 
 ## list of endpoints
-- /GetDecks
+- /Decks
     - Gets a list of all the decks in the database
-- /Getdeck/:id
+- /deck/:id
     - Get a specific deck from the database
-- /CreateDeck
+- /Create
     - Creates a new deck
-- /SaveDeck
-    - Saveschanges made to the deck
-- /DeleteDeck/:id
+- /Save
+    - Saves changes made to the deck
+- /Delete/:id
     - Delete a deck from the database
 
 ## Link to frontend code

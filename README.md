@@ -9,7 +9,7 @@ This is the backend for my MTG deck editor
 ## list of endpoints
 - /Decks
     - Gets a list of all the decks in the database
-- /deck/:id
+- /Deck/:id
     - Get a specific deck from the database
 - /Create
     - Creates a new deck

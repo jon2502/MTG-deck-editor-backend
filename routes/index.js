@@ -9,9 +9,8 @@ router.get('/Decks', async function(req, res, next) {
     // filter = {} must be provided beacus we have projections in the form of name, format and color
     let decks = await DeckModel.find({},'name format color');
     res.json(decks)
-    res.end()
   } catch(error) {
-     res.status(400).json(error.message);
+    res.status(400).json(error.message);
   }
 })
 
@@ -32,7 +31,6 @@ router.post('/Create', async function(req, res, next) {
         format: req.body.format
       })
       const savedDeck = await newDeck.save();
-      console.log(savedDeck)
       res.json(savedDeck);
   } catch(error){
     res.status(400).json(error.message);

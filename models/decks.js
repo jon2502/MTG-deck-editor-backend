@@ -16,10 +16,6 @@ const categorySchema = new mongoose.Schema({
   parentId: {
     type: String
   },
-  type: {
-    type: String,
-    required: true
-  }
 },{ _id: false })
 
 const colorSchema = new mongoose.Schema({
